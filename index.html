@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#071a35">
-  <meta name="description" content="MI NEGOCIO: control de ventas y cuentas">
+  <meta name="description" content="MI NEGOCIO: control de ventas, productos, fiados, abonos y gastos.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MI NEGOCIO">
   <link rel="manifest" href="./manifest.json">
   <link rel="icon" href="./icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="./icon-192.png">
@@ -15,8 +18,21 @@
   <main class="inicio">
     <img class="logo" src="./icon-192.png" alt="MI NEGOCIO">
     <h1>MI NEGOCIO</h1>
-    <p>Aplicación lista para instalar.</p>
-    <small>En Chrome, abre el menú ⋮ y selecciona “Instalar aplicación” o “Agregar a pantalla principal”.</small>
+    <p>Instala la aplicación en tu celular.</p>
+    <button id="installButton" class="abrir" hidden>DESCARGAR APP</button>
+    <section id="androidHelp" class="ayuda" hidden>
+      <p>Si no aparece el botón, abre el menú ⋮ de Chrome y elige <b>Instalar aplicación</b> o <b>Agregar a pantalla principal</b>.</p>
+    </section>
+    <section id="iosHelp" class="ayuda" hidden>
+      <p><b>Para instalar en iPhone o iPad:</b></p>
+      <ol>
+        <li>Abre esta página en <b>Safari</b>.</li>
+        <li>Toca el botón <b>Compartir</b> (cuadrado con flecha hacia arriba).</li>
+        <li>Selecciona <b>Añadir a pantalla de inicio</b>.</li>
+        <li>Toca <b>Añadir</b>.</li>
+      </ol>
+    </section>
+    <p id="installedMessage" class="ayuda" hidden>MI NEGOCIO ya está instalada en este dispositivo.</p>
   </main>
   <script src="./app.js" defer></script>
 </body>
