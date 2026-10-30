@@ -1,1 +1,17 @@
-
+{
+  "id": "./",
+  "name": "MI NEGOCIO",
+  "short_name": "MI NEGOCIO",
+  "description": "Control de ventas, productos, fiados, abonos y gastos",
+  "lang": "es-CO",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#edf2f8",
+  "theme_color": "#071a35",
+  "icons": [
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+  ]
+}
