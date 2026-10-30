@@ -1,40 +1,144 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#071a35">
-<meta name="description" content="MI NEGOCIO: sistema de ventas y administración.">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="MI NEGOCIO">
-<link rel="manifest" href="./manifest.json">
-<link rel="apple-touch-icon" href="./icon-192.png">
-<title>MI NEGOCIO</title>
-<style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Arial,sans-serif;background:#edf2f8;color:#10243e}
-#app{height:100%;display:flex;flex-direction:column}
-header{min-height:54px;background:#071a35;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:3px solid #d9b65c}
-header strong{letter-spacing:1px}#installButton{border:1px solid #d9b65c;border-radius:9px;padding:8px 12px;background:#d9b65c;color:#071a35;font-weight:bold}
-#appFrame{border:0;width:100%;flex:1;background:#edf2f8}
-#loading{padding:24px;text-align:center;color:#52657d}
-#offline{display:none;padding:16px;background:#fff3cd;color:#664d03;text-align:center;font-size:14px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071a35">
+  <meta name="description" content="MI NEGOCIO: sistema de ventas y administración.">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MI NEGOCIO">
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+
+  <title>MI NEGOCIO</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #edf2f8;
+      color: #10243e;
+    }
+
+    #app {
+      height: 100%;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      min-height: 55px;
+      background: #071a35;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      border-bottom: 3px solid #d9b65c;
+    }
+
+    header strong {
+      letter-spacing: 1px;
+      font-size: 17px;
+    }
+
+    #installButton {
+      border: 1px solid #d9b65c;
+      border-radius: 9px;
+      padding: 9px 12px;
+      background: #d9b65c;
+      color: #071a35;
+      font-weight: bold;
+    }
+
+    #installButton[hidden] {
+      display: none;
+    }
+
+    #appFrame {
+      border: 0;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      background: #edf2f8;
+    }
+
+    #loading {
+      padding: 24px;
+      text-align: center;
+      color: #52657d;
+    }
+
+    #error {
+      display: none;
+      padding: 18px;
+      background: #fee2e2;
+      color: #991b1b;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
+
 <div id="app">
-<header><strong>🛍️ MI NEGOCIO</strong><button id="installButton" hidden>Instalar app</button></header>
-<div id="offline">No se pudo conectar con el sistema. Revisa tu conexión a internet e intenta recargar.</div>
-<div id="loading">Abriendo tu negocio…</div>
-<iframe id="appFrame" title="Aplicación MI NEGOCIO" allow="clipboard-read; clipboard-write"></iframe>
+
+  <header>
+    <strong>🛍️ MI NEGOCIO</strong>
+    <button id="installButton" hidden>
+      Instalar aplicación
+    </button>
+  </header>
+
+  <div id="loading">
+    Abriendo MI NEGOCIO...
+  </div>
+
+  <div id="error">
+    No se pudo cargar el sistema.
+    Verifica tu conexión a internet e intenta nuevamente.
+    <button onclick="location.reload()">
+      Volver a intentar
+    </button>
+  </div>
+
+  <iframe
+    id="appFrame"
+    title="Sistema MI NEGOCIO"
+    allow="clipboard-read; clipboard-write">
+  </iframe>
+
 </div>
+
 <script>
-const APP_URL="https://script.google.com/macros/s/AKfycbzxyV5iF8clEP4Oj9m6qH3a4G31kU6N9TDT3ceYmgr1VrGIXnDXO4Dl8Fq5FBizlMn0/exec";
-const frame=document.getElementById('appFrame');
-frame.src=APP_URL;
-frame.addEventListener('load',()=>{document.getElementById('loading').style.display='none';});
-frame.addEventListener('error',()=>{document.getElementById('loading').style.display='none';document.getElementById('offline').style.display='block';});
+  const APP_URL =
+    "https://script.google.com/macros/s/AKfycbzxyV5iF8clEP4Oj9m6qH3a4G31kU6N9TDT3ceYmgr1VrGIXnDXO4Dl8Fq5FBizlMn0/exec";
+
+  const frame = document.getElementById("appFrame");
+
+  frame.src = APP_URL;
+
+  frame.addEventListener("load", function() {
+    document.getElementById("loading").style.display = "none";
+  });
+
+  window.addEventListener("online", function() {
+    document.getElementById("error").style.display = "none";
+  });
 </script>
+
 <script src="./app.js" defer></script>
+
 </body>
 </html>
