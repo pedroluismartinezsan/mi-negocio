@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#071a35">
-  <meta name="description" content="Acceso móvil a MI NEGOCIO">
+  <meta name="description" content="Acceso a MI NEGOCIO">
   <link rel="manifest" href="./manifest.json">
   <link rel="icon" href="./icon-192.png">
   <link rel="apple-touch-icon" href="./icon-192.png">
@@ -12,16 +12,12 @@
   <title>MI NEGOCIO</title>
 </head>
 <body>
-  <main id="app">
-    <div class="barra"><img src="./icon-192.png" alt=""><div><strong>MI NEGOCIO</strong><small>Tu negocio, bajo control</small></div></div>
-    <div class="estado" id="estado">Conectando con tu aplicación…</div>
-    <iframe
-      id="negocio"
-      title="Aplicación MI NEGOCIO"
-      src="https://script.google.com/macros/s/AKfycbzxyV5iF8clEP4Oj9m6qH3a4G31kU6N9TDT3ceYmgr1VrGIXnDXO4Dl8Fq5FBizlMn0/exec"
-      allow="clipboard-read; clipboard-write"
-      referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    <noscript>Activa JavaScript para usar MI NEGOCIO.</noscript>
+  <main class="inicio">
+    <img class="logo" src="./icon-192.png" alt="MI NEGOCIO">
+    <h1>MI NEGOCIO</h1>
+    <p>Ventas, productos, fiados, abonos y gastos.</p>
+    <a class="abrir" href="https://script.google.com/macros/s/AKfycbzxyV5iF8clEP4Oj9m6qH3a4G31kU6N9TDT3ceYmgr1VrGIXnDXO4Dl8Fq5FBizlMn0/exec" target="_blank" rel="noopener">Abrir mi aplicación</a>
+    <small>Se abrirá de forma segura en Google Apps Script. Necesitas conexión a internet.</small>
   </main>
   <script src="./app.js"></script>
 </body>
