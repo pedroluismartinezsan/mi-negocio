@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#071a35">
   <meta name="description" content="MI NEGOCIO: sistema de ventas y administración.">
-
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="MI NEGOCIO">
@@ -17,9 +17,7 @@
   <title>MI NEGOCIO</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -62,9 +60,7 @@
       font-weight: bold;
     }
 
-    #installButton[hidden] {
-      display: none;
-    }
+    #installButton[hidden] { display: none; }
 
     #appFrame {
       border: 0;
@@ -91,55 +87,40 @@
 </head>
 
 <body>
+  <div id="app">
+    <header>
+      <strong>🛍️ MI NEGOCIO</strong>
+      <button id="installButton" hidden>Instalar aplicación</button>
+    </header>
 
-<div id="app">
+    <div id="loading">Abriendo MI NEGOCIO...</div>
 
-  <header>
-    <strong>🛍️ MI NEGOCIO</strong>
-    <button id="installButton" hidden>
-      Instalar aplicación
-    </button>
-  </header>
+    <div id="error">
+      No se pudo cargar el sistema.
+      Verifica tu conexión a internet e intenta nuevamente.
+      <button onclick="location.reload()">Volver a intentar</button>
+    </div>
 
-  <div id="loading">
-    Abriendo MI NEGOCIO...
+    <iframe
+      id="appFrame"
+      title="Sistema MI NEGOCIO"
+      allow="clipboard-read; clipboard-write">
+    </iframe>
   </div>
 
-  <div id="error">
-    No se pudo cargar el sistema.
-    Verifica tu conexión a internet e intenta nuevamente.
-    <button onclick="location.reload()">
-      Volver a intentar
-    </button>
-  </div>
+  <script>
+    const APP_URL = "https://script.google.com/macros/s/AKfycbxoO_qdxqkk1dBzpB3WeGd5D9Fg5EwobDrF0jqvDqWXNA0S4giAWYoX8VsCNZQ5PY78/exec";
 
-  <iframe
-    id="appFrame"
-    title="Sistema MI NEGOCIO"
-    allow="clipboard-read; clipboard-write">
-  </iframe>
+    const frame = document.getElementById("appFrame");
+    const loading = document.getElementById("loading");
 
-</div>
+    frame.src = APP_URL;
 
-<script>
-  const APP_URL =
-    "const APP_URL =
-  "https://script.google.com/macros/s/AKfycbxoO_qdxqkk1dBzpB3WeGd5D9Fg5EwobDrF0jqvDqWXNA0S4giAWYoX8VsCNZQ5PY78/exec";";
+    frame.addEventListener("load", function() {
+      loading.style.display = "none";
+    });
+  </script>
 
-  const frame = document.getElementById("appFrame");
-
-  frame.src = APP_URL;
-
-  frame.addEventListener("load", function() {
-    document.getElementById("loading").style.display = "none";
-  });
-
-  window.addEventListener("online", function() {
-    document.getElementById("error").style.display = "none";
-  });
-</script>
-
-<script src="./app.js" defer></script>
-
+  <script src="./app.js" defer></script>
 </body>
 </html>
